@@ -113,9 +113,9 @@ tensor_spec = graph_tensor.spec
 inputs = tf.keras.layers.Input(type_spec=tensor_spec)
 
 gnn = tfgnn.keras.ConvGNNBuilder(
-    lambda edge: tfgnn.keras.layers.SimpleConvolution(),
+    lambda edge: tfgnn.keras.layers.SimpleConvolution(tf.keras.layers.Dense(16)),
 
-    lambda node: tfgnn.keras.layers.NextStateFromConcat(),
+    lambda node: tfgnn.keras.layers.NextStateFromConcat(tf.keras.layers.Dense(16)),
 )
 
 
